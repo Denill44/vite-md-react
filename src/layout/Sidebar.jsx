@@ -1,4 +1,4 @@
-import { Toolbar, Drawer, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
+import { Toolbar, Drawer, List, ListItem, ListItemText, ListItemButton, Typography, Box } from '@mui/material';
 
 
 export function Sidebar({ drawerWidth, isSmallScreen, drawerOpen, ...props }) {
@@ -9,7 +9,7 @@ export function Sidebar({ drawerWidth, isSmallScreen, drawerOpen, ...props }) {
       {...props}
     >
       <Toolbar />
-      <div style={{ overflow: 'auto', width: drawerWidth }}>
+      <Box sx={{ overflow: 'auto', width: drawerWidth, height: "100%", display: "flex", flexDirection: "column" }}>
         <List>
           <ListItem disablePadding>
             <ListItemButton component="a" href="/titles">
@@ -17,7 +17,14 @@ export function Sidebar({ drawerWidth, isSmallScreen, drawerOpen, ...props }) {
             </ListItemButton>
           </ListItem>
         </List>
-      </div>
+        <Box sx={{ flex: 1 }} />
+        <Box sx={{ marginLeft: 2, marginBottom: 2 }}>
+          <Typography>Powered by</Typography>
+          <a href="https://api.mangadex.org/docs/">
+            <Typography>Mangadex</Typography>
+          </a>
+        </Box>
+      </Box>
     </Drawer>
   );
 }
